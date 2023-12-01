@@ -1,0 +1,51 @@
+<!-- filterapp/templates/filterapp/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog List</title>
+</head>
+<body>
+
+    
+
+    <h1>Welcome to my page</h1>
+    <p>author: {{ blogs.author }}, age: {{ blogs.age }}</p>
+    <h2>programming language:</h2>
+
+    {% for i in blogs.list%}
+        <h4>{{i}}</h4>
+    {% endfor %}
+
+    <p>birthday: {{ blogs.birthday}}</p>
+    <p>value: {{blogs.val}}</p>
+
+    <h1>Courses:</h1>
+
+
+    <ul>
+        {% for i  in blogs.courses %}
+
+        
+        <li>course id : {{i.id}}, name: {{i.name | upper  }}, fee: ${{i.fee | add:'300'}},<br></li>
+
+        <li>course id : {{i.id}}, name: {{i.name | lower  }}, fee: ${{i.fee | add:'300'}},<br></li>
+        
+        <li>course id : {{i.id}}, name: {{i.name | title   }}, fee: ${{i.fee | add:'600'}},</li>
+        
+        <li>course id : {{i.id}}, name: {{i.name | slice:":3"   }}, fee: ${{i.fee | add:'600'}},</li>
+
+        <li>course id : {{i.id}}, name: {{i.name | wordcount   }}, fee: ${{i.fee | add:'600'}},</li>
+
+        <li>course id : {{i.id}}, name: {{i.name | truncatewords:1   }}, fee: ${{i.fee | add:'600'}},</li>
+        <br>
+        <br>
+        <br>
+        {% endfor %}
+    </ul>
+      
+    
+
+</body>
+</html>
